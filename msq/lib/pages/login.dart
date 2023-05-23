@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:msq/pages/quiz_screen.dart';
-//import 'package:sqflite/sqflite.dart';
+import 'package:msq/pages/homepage.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -86,7 +85,7 @@ class LoginPage extends StatelessWidget {
                         height: 60,
                         onPressed: () {Navigator.push(
                         context, MaterialPageRoute(
-                          builder: (context) => const QuizScreen()));},
+                          builder: (context) => const HomePage()));},
                         color: const Color(0xff0095FF),
                         elevation: 0,
                         shape: RoundedRectangleBorder(

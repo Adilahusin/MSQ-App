@@ -1,43 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:msq/pages/login.dart';
-import 'package:msq/pages/info.dart';
+import 'package:msq/main.dart';
+import 'package:msq/pages/quiz_screen.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Index(),
-  ));
-}
-
-class Index extends StatelessWidget {
-  const Index({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.yellow[700],
         actions: <Widget>[
+        // IconButton(
+        //   onPressed: (){
+        //     Navigator.pop(context);
+        //   },
 
-          IconButton(icon: const Icon(Icons.person),
-          onPressed: (){
-            Navigator.push(
-              context, MaterialPageRoute(
-                builder: (context) => const LoginPage()));
-                    },
-          ),
-
-          IconButton(icon: const Icon(Icons.info),
-          onPressed: (){
-            Navigator.push(
-              context, MaterialPageRoute(
-                builder: (context) => const InfoPage()));
-                    },
-          ),
-
+        //   icon: const Icon(Icons.arrow_back_rounded,
+        //   size: 20,
+        //   color: Colors.white,
+        //   ),
+        // ),
         ],
       ),
-      
+
       body: SafeArea(
         child: Container(
           width: double.infinity,
@@ -61,7 +50,6 @@ class Index extends StatelessWidget {
                       fontSize: 33,
                     ),
                     ),
-
                     const SizedBox(
                       height: 20,
                     ),
@@ -76,47 +64,67 @@ class Index extends StatelessWidget {
                 ],
               ),
 
-              Container(
-                height: MediaQuery.of(context).size.height / 3,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/login.png")
-                  )
-                ),
-              ),
-
               Column(
                 children: <Widget>[
 
                   // start button
                   MaterialButton(
                     minWidth: double.infinity,
-                    height: 60,
+                    height: 70,
                     onPressed: (){
                       Navigator.push(
                         context, MaterialPageRoute(
-                          builder: (context) => const LoginPage()));
+                          builder: (context) => const QuizScreen()));
                     },
 
                     shape: RoundedRectangleBorder(
                       side: const BorderSide(
                         color: Colors.black
                       ),
-                      borderRadius: BorderRadius.circular(50)
+                      borderRadius: BorderRadius.circular(20)
                     ),
 
                     child: const Text("Start",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 18,
+                      fontSize: 20,
                     ),
                     ),
 
                   ),
+
+                  const SizedBox(
+                  height: 30,
+                  ),
+
+                  MaterialButton(
+                    minWidth: double.infinity,
+                    height: 70,
+                    onPressed: (){
+                      Navigator.push(
+                        context, MaterialPageRoute(
+                          builder: (context) => const QuizScreen()));
+                    },
+
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(
+                        color: Colors.black
+                      ),
+                      borderRadius: BorderRadius.circular(20)
+                    ),
+
+                    child: const Text("History",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),
+                    ),
+                  
+                  ),
                 ],
               ),
-
             ],
+                  
           ),
         ),
       ),

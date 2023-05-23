@@ -18,7 +18,7 @@ class InfoPage extends StatelessWidget {
 
           icon: const Icon(Icons.arrow_back_rounded,
           size: 20,
-          color: Colors.black,
+          color: Colors.white,
           ),
         ),
       ),
