@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:msq/main.dart';
+//import 'package:msq/main.dart';
 import 'package:msq/pages/quiz_screen.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,18 +13,18 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.yellow[700],
-        actions: <Widget>[
-        // IconButton(
-        //   onPressed: (){
-        //     Navigator.pop(context);
-        //   },
+        // actions: const <Widget>[
+        // // IconButton(
+        // //   onPressed: (){
+        // //     Navigator.pop(context);
+        // //   },
 
-        //   icon: const Icon(Icons.arrow_back_rounded,
-        //   size: 20,
-        //   color: Colors.white,
-        //   ),
-        // ),
-        ],
+        // //   icon: const Icon(Icons.arrow_back_rounded,
+        // //   size: 20,
+        // //   color: Colors.white,
+        // //   ),
+        // // ),
+        // ],
       ),
 
       body: SafeArea(

@@ -19,6 +19,10 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+            appBar: AppBar(
+        backgroundColor: Colors.yellow[700],
+            ),
+
       backgroundColor: const Color.fromARGB(255, 5, 50, 80),
       body: Container (
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
@@ -42,6 +46,7 @@ class _QuizScreenState extends State<QuizScreen> {
             style: TextStyle(
               color: Colors.white,
               fontSize: 24,
+              fontWeight: FontWeight.bold,
             ),
           ),
 
@@ -75,14 +80,15 @@ class _QuizScreenState extends State<QuizScreen> {
           width: double.infinity,
           padding: const EdgeInsets.all(32),
           decoration: BoxDecoration(
-            color: Colors.orange,
+            
+            color: Colors.yellow[700],
             borderRadius: BorderRadius.circular(16),
           ),
 
           child: Text (
             questionList[currentQuestionIndex].questionText,
             style: const TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
