@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:msq/pages/admin_login.dart';
 import 'package:msq/pages/login.dart';
 import 'package:msq/pages/info.dart';
 
@@ -23,7 +24,7 @@ class Index extends StatelessWidget {
           onPressed: (){
             Navigator.push(
               context, MaterialPageRoute(
-                builder: (context) => const LoginPage()));
+                builder: (context) => const AdminLogin()));
                     },
           ),
 
@@ -42,13 +43,37 @@ class Index extends StatelessWidget {
         child: Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 70),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Column(
                 children: <Widget>[
+
+            //   Column(
+            //   children: [
+            //     Row(
+            //       mainAxisAlignment: MainAxisAlignment.end,
+            //       children: [
+            //         Image.asset(
+            //             'assets/tati.png',
+            //             width: 50,
+            //             height: 70,
+            //         ),
+            //       ],
+            //     ),
+            //    ],
+            // ),
+
+                // Container(
+                // decoration: const BoxDecoration(
+                //   image: DecorationImage(
+                //     image: AssetImage("assets/tati.png",
+                //     ),
+                //     ),
+                //   ),
+                // ),
 
                   const SizedBox(
                   height: 30,

@@ -78,7 +78,7 @@ class HomePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20)
                     ),
 
-                    child: const Text("Start",
+                    child: const Text("Start Answering",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 20,
@@ -114,21 +114,20 @@ class HomePage extends StatelessWidget {
                   //   ),
                   //   ),   
                   // ),
-              
-              //floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-              FloatingActionButton(
-                backgroundColor: Colors.yellow[700],
-                foregroundColor: Colors.black,
-                
-                onPressed: () {Navigator.push(
+                  
+                  FloatingActionButton(
+                    onPressed: () {Navigator.push(
                         context, MaterialPageRoute(
                           builder: (context) => const Index()));},
-                hoverColor: Colors.blue,
-                child: const Icon(Icons.logout_rounded,
-                ),
-
-              ),
-            ],
+                          
+                          backgroundColor: Colors.yellow[700],
+                          foregroundColor: Colors.black,
+                          child: const Icon(Icons.logout_rounded),
+                          ),
+                          
+                          //floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+                          
+                          ],
                   
           ),
         ),
