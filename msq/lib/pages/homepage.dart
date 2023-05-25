@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:msq/pages/login.dart';
+import 'package:msq/main.dart';
 import 'package:msq/pages/quiz_screen.dart';
 
 class HomePage extends StatelessWidget {
@@ -122,7 +122,7 @@ class HomePage extends StatelessWidget {
                 
                 onPressed: () {Navigator.push(
                         context, MaterialPageRoute(
-                          builder: (context) => const LoginPage()));},
+                          builder: (context) => const Index()));},
                 hoverColor: Colors.blue,
                 child: const Icon(Icons.logout_rounded,
                 ),
