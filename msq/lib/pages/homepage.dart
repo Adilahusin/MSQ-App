@@ -115,12 +115,15 @@ class HomePage extends StatelessWidget {
                   //   ),   
                   // ),
               
+              //floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
               FloatingActionButton(
                 backgroundColor: Colors.yellow[700],
                 foregroundColor: Colors.black,
+                
                 onPressed: () {Navigator.push(
                         context, MaterialPageRoute(
                           builder: (context) => const LoginPage()));},
+                hoverColor: Colors.blue,
                 child: const Icon(Icons.logout_rounded,
                 ),
 
