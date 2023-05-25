@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:msq/main.dart';
+import 'package:msq/pages/login.dart';
 import 'package:msq/pages/quiz_screen.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,18 +13,6 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.yellow[700],
-        // actions: const <Widget>[
-        // // IconButton(
-        // //   onPressed: (){
-        // //     Navigator.pop(context);
-        // //   },
-
-        // //   icon: const Icon(Icons.arrow_back_rounded,
-        // //   size: 20,
-        // //   color: Colors.white,
-        // //   ),
-        // // ),
-        // ],
       ),
 
       body: SafeArea(
@@ -64,8 +52,14 @@ class HomePage extends StatelessWidget {
                 ],
               ),
 
-              Column(
-                children: <Widget>[
+                Container(
+                height: MediaQuery.of(context).size.height / 3,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/login.png")
+                  )
+                ),
+              ),
 
                   // start button
                   MaterialButton(
@@ -94,34 +88,42 @@ class HomePage extends StatelessWidget {
                   ),
 
                   const SizedBox(
-                  height: 30,
+                  height: 10,
                   ),
 
-                  MaterialButton(
-                    minWidth: double.infinity,
-                    height: 70,
-                    onPressed: (){
-                      Navigator.push(
+                  // MaterialButton(
+                  //   minWidth: double.infinity,
+                  //   height: 70,
+                  //   onPressed: (){
+                  //     Navigator.push(
+                  //       context, MaterialPageRoute(
+                  //         builder: (context) => const QuizScreen()));
+                  //   },
+
+                  //   shape: RoundedRectangleBorder(
+                  //     side: const BorderSide(
+                  //       color: Colors.black
+                  //     ),
+                  //     borderRadius: BorderRadius.circular(20)
+                  //   ),
+
+                  //   child: const Text("History",
+                  //   style: TextStyle(
+                  //     fontWeight: FontWeight.w600,
+                  //     fontSize: 20,
+                  //   ),
+                  //   ),   
+                  // ),
+              
+              FloatingActionButton(
+                backgroundColor: Colors.yellow[700],
+                foregroundColor: Colors.black,
+                onPressed: () {Navigator.push(
                         context, MaterialPageRoute(
-                          builder: (context) => const QuizScreen()));
-                    },
+                          builder: (context) => const LoginPage()));},
+                child: const Icon(Icons.logout_rounded,
+                ),
 
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                        color: Colors.black
-                      ),
-                      borderRadius: BorderRadius.circular(20)
-                    ),
-
-                    child: const Text("History",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                    ),
-                    ),
-                  
-                  ),
-                ],
               ),
             ],
                   
