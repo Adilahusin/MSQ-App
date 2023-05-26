@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:msq/main.dart';
+//import 'package:msq/main.dart';
 import 'package:msq/pages/quiz_screen.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class AdminHomePage extends StatelessWidget {
+  const AdminHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,17 +31,16 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           width: double.infinity,
-          height: MediaQuery.of(context).size.height,
+          //height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Column(
                 children: <Widget>[
 
                   const SizedBox(
-                  height: 30,
+                  height: 20,
                   ),
 
                   const Text(
@@ -64,14 +64,10 @@ class HomePage extends StatelessWidget {
                 ],
               ),
 
-                Container(
-                height: MediaQuery.of(context).size.height / 3,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/login.png")
-                  )
-                ),
-              ),
+                  const SizedBox(
+                  height: 50,
+                  ),
+
 
                   // start button
                   MaterialButton(
@@ -90,44 +86,71 @@ class HomePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(50)
                     ),
 
-                    child: const Text("Start",
+                    child: const Text("Update Questions",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 20,
                     ),
                     ),
-
                   ),
 
                   const SizedBox(
-                  height: 10,
+                  height: 20,
                   ),
 
-                  // MaterialButton(
-                  //   minWidth: double.infinity,
-                  //   height: 70,
-                  //   onPressed: (){
-                  //     Navigator.push(
-                  //       context, MaterialPageRoute(
-                  //         builder: (context) => const QuizScreen()));
-                  //   },
+                  MaterialButton(
+                    minWidth: double.infinity,
+                    height: 70,
+                    onPressed: (){
+                      Navigator.push(
+                        context, MaterialPageRoute(
+                          builder: (context) => const QuizScreen()));
+                    },
 
-                  //   shape: RoundedRectangleBorder(
-                  //     side: const BorderSide(
-                  //       color: Colors.black
-                  //     ),
-                  //     borderRadius: BorderRadius.circular(20)
-                  //   ),
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(
+                        color: Colors.black
+                      ),
+                      borderRadius: BorderRadius.circular(50)
+                    ),
 
-                  //   child: const Text("History",
-                  //   style: TextStyle(
-                  //     fontWeight: FontWeight.w600,
-                  //     fontSize: 20,
-                  //   ),
-                  //   ),   
-                  // ),
+                    child: const Text("Update Remarks",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),
+                    ),   
+                  ),
                   
-          ],
+                  const SizedBox(
+                  height: 20,
+                  ),
+
+                  MaterialButton(
+                    minWidth: double.infinity,
+                    height: 70,
+                    onPressed: (){
+                      Navigator.push(
+                        context, MaterialPageRoute(
+                          builder: (context) => const QuizScreen()));
+                    },
+
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(
+                        color: Colors.black
+                      ),
+                      borderRadius: BorderRadius.circular(50)
+                    ),
+
+                    child: const Text("View Record",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),
+                    ),   
+                  ),
+                          
+                          ],
                   
           ),
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:msq/main.dart';
-import 'package:msq/pages/homepage.dart';
+import 'package:msq/pages/admin_homepage.dart';
 
 class AdminLogin extends StatelessWidget {
   const AdminLogin({Key? key}) : super(key: key);
@@ -88,7 +88,7 @@ class AdminLogin extends StatelessWidget {
                         height: 60,
                         onPressed: () {Navigator.push(
                         context, MaterialPageRoute(
-                          builder: (context) => const HomePage()));},
+                          builder: (context) => const AdminHomePage()));},
                         color: const Color(0xff0095FF),
                         elevation: 0,
                         shape: RoundedRectangleBorder(
