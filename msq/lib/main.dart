@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:msq/pages/admin_login.dart';
+import 'package:msq/pages/guidelines.dart';
 import 'package:msq/pages/login.dart';
 import 'package:msq/pages/info.dart';
 
@@ -133,7 +134,7 @@ class Index extends StatelessWidget {
                     onPressed: (){
                       Navigator.push(
                         context, MaterialPageRoute(
-                          builder: (context) => const InfoPage()));
+                          builder: (context) => const Guidelines()));
                     },
 
                     shape: RoundedRectangleBorder(
@@ -143,7 +144,7 @@ class Index extends StatelessWidget {
                       borderRadius: BorderRadius.circular(50)
                     ),
 
-                    child: const Text("What is MSQ?",
+                    child: const Text("Guidelines",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 18,
