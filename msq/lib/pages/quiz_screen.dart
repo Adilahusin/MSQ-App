@@ -29,17 +29,6 @@ class _QuizScreenState extends State<QuizScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-          
-        //   IconButton(
-        //   onPressed: (){
-        //     Navigator.pop(context);
-        //   },
-
-        //   icon: const Icon(Icons.arrow_back_ios,
-        //   size: 20,
-        //   color: Colors.white,
-        //   ),
-        // ),
 
           const Text(
             "MSQ App",
@@ -58,8 +47,6 @@ class _QuizScreenState extends State<QuizScreen> {
     );
 
   }
-
-  
 
   _questionWidget(){
     return Column(

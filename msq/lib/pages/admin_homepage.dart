@@ -31,7 +31,6 @@ class AdminHomePage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           width: double.infinity,
-          //height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
