@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:msq/pages/admin_login.dart';
 import 'package:msq/pages/guidelines.dart';
 import 'package:msq/pages/login.dart';
-import 'package:msq/pages/info.dart';
+import 'package:msq/pages/tati_info.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -47,7 +47,6 @@ class Index extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 70),
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Column(
