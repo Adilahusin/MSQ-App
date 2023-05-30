@@ -102,30 +102,6 @@ class HomePage extends StatelessWidget {
                   const SizedBox(
                   height: 10,
                   ),
-
-                  // MaterialButton(
-                  //   minWidth: double.infinity,
-                  //   height: 70,
-                  //   onPressed: (){
-                  //     Navigator.push(
-                  //       context, MaterialPageRoute(
-                  //         builder: (context) => const QuizScreen()));
-                  //   },
-
-                  //   shape: RoundedRectangleBorder(
-                  //     side: const BorderSide(
-                  //       color: Colors.black
-                  //     ),
-                  //     borderRadius: BorderRadius.circular(20)
-                  //   ),
-
-                  //   child: const Text("History",
-                  //   style: TextStyle(
-                  //     fontWeight: FontWeight.w600,
-                  //     fontSize: 20,
-                  //   ),
-                  //   ),   
-                  // ),
                   
           ],
                   
