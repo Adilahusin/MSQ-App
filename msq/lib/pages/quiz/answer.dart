@@ -19,6 +19,6 @@ class Answer extends StatelessWidget {
             backgroundColor: MaterialStateProperty.all(Colors.green)),
         child: Text(answerText),
       ),
-    ); //Container
+    );
+    }
   }
-}
