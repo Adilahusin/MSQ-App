@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class InfoPage extends StatelessWidget {
-  const InfoPage({Key? key}) : super(key: key);
+class TatiInfo extends StatelessWidget {
+  const TatiInfo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +31,18 @@ class InfoPage extends StatelessWidget {
           
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
+            children: const <Widget>[
             
-              Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/tati 30.png")
-                  )
-                ),
-              ),
+              // Container(
+              //   decoration: const BoxDecoration(
+              //     image: DecorationImage(
+              //       image: AssetImage("assets/tati 30.png")
+              //     )
+              //   ),
+              // ),
 
-              const Text.rich(
+
+               Text.rich(
                   style: TextStyle(color: Colors.black), //style for all textspan
                   TextSpan(
                      children: [ 
