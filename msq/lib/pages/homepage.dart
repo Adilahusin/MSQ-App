@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:msq/main.dart';
-import 'package:msq/pages/quiz_screen.dart';
+import 'package:msq/question_model.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -80,7 +80,7 @@ class HomePage extends StatelessWidget {
                     onPressed: (){
                       Navigator.push(
                         context, MaterialPageRoute(
-                          builder: (context) => const QuizScreen()));
+                          builder: (context) => const MyApp()));
                     },
 
                     shape: RoundedRectangleBorder(

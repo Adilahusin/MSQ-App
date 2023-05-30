@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:msq/main.dart';
-//import 'package:msq/main.dart';
-import 'package:msq/pages/quiz_screen.dart';
+import 'package:msq/pages/admin_login.dart';
 
 class AdminHomePage extends StatelessWidget {
   const AdminHomePage({Key? key}) : super(key: key);
@@ -75,7 +74,7 @@ class AdminHomePage extends StatelessWidget {
                     onPressed: (){
                       Navigator.push(
                         context, MaterialPageRoute(
-                          builder: (context) => const QuizScreen()));
+                          builder: (context) =>  const AdminLogin()));
                     },
 
                     shape: RoundedRectangleBorder(
@@ -103,7 +102,7 @@ class AdminHomePage extends StatelessWidget {
                     onPressed: (){
                       Navigator.push(
                         context, MaterialPageRoute(
-                          builder: (context) => const QuizScreen()));
+                          builder: (context) => const AdminLogin()));
                     },
 
                     shape: RoundedRectangleBorder(
@@ -131,7 +130,7 @@ class AdminHomePage extends StatelessWidget {
                     onPressed: (){
                       Navigator.push(
                         context, MaterialPageRoute(
-                          builder: (context) => const QuizScreen()));
+                          builder: (context) =>  const AdminLogin()));
                     },
 
                     shape: RoundedRectangleBorder(
