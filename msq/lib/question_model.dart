@@ -69,21 +69,22 @@ class _MyAppState extends State<MyApp> {
   var _totalScore = 0;
  
   void _resetQuiz() {
-    setState(() {
+     WidgetsBinding.instance
+        .addPostFrameCallback((_) => setState(() {
+    
       _questionIndex = 0;
       _totalScore = 0;
-    });
-  }
+    // setState(() {});
+  }));
  
   void _answerQuestion(int score) {
     _totalScore += score;
  
-//  WidgetsBinding.instance
-//         .addPostFrameCallback((_) => setState(() {}));
-    
-    setState(() {
+ WidgetsBinding.instance
+        .addPostFrameCallback((_) => setState(() {
+
       _questionIndex = _questionIndex + 1;
-    });
+    }));
     // ignore: avoid_print
     print(_questionIndex);
     if (_questionIndex < _questions.length) {
@@ -100,8 +101,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Geeks for Geeks'),
-          backgroundColor: const Color(0xFF00E676),
+          title: const Text('MSQ Mobile Application'),
+          backgroundColor: Colors.yellow[700],
         ),
         body: Padding(
           padding: const EdgeInsets.all(30.0),
@@ -112,9 +113,10 @@ class _MyAppState extends State<MyApp> {
                   questions: _questions,
                 ) //Quiz
               : Result(_totalScore, _resetQuiz),
-        ), //Padding
-      ), //Scaffold
+        ),
+      ),
       debugShowCheckedModeBanner: false,
-    ); //MaterialApp
+    );
   }
+}
 }
