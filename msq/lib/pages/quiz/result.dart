@@ -46,13 +46,14 @@ class Result extends StatelessWidget {
           TextButton(
             onPressed: resetHandler(),
             child: Container(
-              color: Colors.green,
+              color: Colors.yellow[700],
               padding: const EdgeInsets.all(14),
               child: const Text(
                 'Restart Quiz',
-                style: TextStyle(color: Colors.blue),
+                style: TextStyle(color: Colors.black
               ),
             ),
+          ),
           ),
         ], //<Widget>[]
       ), //Column
