@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final _questions = const [
-    {
+        {
       'questionText': 'Q1. Who created Flutter?',
       'answers': [
         {'text': 'Facebook', 'score': -2},
@@ -28,8 +28,7 @@ class _MyAppState extends State<MyApp> {
         {'text': 'Android Development Kit', 'score': -2},
         {'text': 'IOS Development Kit', 'score': -2},
         {'text': 'Web Development Kit', 'score': -2},
-        {
-          'text':
+        {'text':
               'SDK to build beautiful IOS, Android, Web & Desktop Native Apps',
           'score': 10
         },
@@ -79,6 +78,9 @@ class _MyAppState extends State<MyApp> {
   void _answerQuestion(int score) {
     _totalScore += score;
  
+//  WidgetsBinding.instance
+//         .addPostFrameCallback((_) => setState(() {}));
+    
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
@@ -98,7 +100,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.yellow[700],
+          title: const Text('Geeks for Geeks'),
+          backgroundColor: const Color(0xFF00E676),
         ),
         body: Padding(
           padding: const EdgeInsets.all(30.0),
@@ -111,69 +114,7 @@ class _MyAppState extends State<MyApp> {
               : Result(_totalScore, _resetQuiz),
         ), //Padding
       ), //Scaffold
+      debugShowCheckedModeBanner: false,
     ); //MaterialApp
   }
 }
-
-// class Question{
-
-//   final String questionText;
-//   final List<Answer> answersList;
-
-//   Question(this.questionText, this.answersList);
-// }
-
-// class Answer {
-//   final String answerText;
-//   final bool isCorrect;
-
-//   Answer(this.answerText, this.isCorrect);
-// }
-
-// List<Question> getQuestion(){
-//   List<Question> list = [];
-
-//   // Add questions and answers here
-
-//   list.add(Question(
-//     "10 + 10?",
-//     [
-//       Answer("20", true),
-//       Answer("40", false),
-//       Answer("60", false),
-//       Answer("70", false),
-//     ],
-//   ));
-
-//     list.add(Question(
-//     "50 + 10?",
-//     [
-//       Answer("50", false),
-//       Answer("10", false),
-//       Answer("60", true),
-//       Answer("90", false),
-//     ],
-//   ));
-
-//     list.add(Question(
-//     "100-50?",
-//     [
-//       Answer("10", false),
-//       Answer("20", false),
-//       Answer("30", false),
-//       Answer("50", true),
-//     ],
-//   ));
-
-//     list.add(Question(
-//     "100 + 100?",
-//     [
-//       Answer("200", true),
-//       Answer("40", false),
-//       Answer("60", false),
-//       Answer("70", false),
-//     ],
-//   ));
-
-//   return list;
-// }
