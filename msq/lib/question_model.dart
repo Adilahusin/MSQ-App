@@ -12,6 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  
   final _questions = const [
         {
       'questionText': 'Q1. Who created Flutter?',
@@ -71,12 +72,13 @@ class _MyAppState extends State<MyApp> {
   void _resetQuiz() {
      WidgetsBinding.instance
         .addPostFrameCallback((_) => setState(() {
-    
       _questionIndex = 0;
       _totalScore = 0;
-    // setState(() {});
+    //setState(() {});
   }));
+  }
  
+
   void _answerQuestion(int score) {
     _totalScore += score;
  
@@ -118,5 +120,4 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
     );
   }
-}
 }
