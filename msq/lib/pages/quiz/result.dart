@@ -6,10 +6,10 @@ class Result extends StatelessWidget {
  
   const Result(this.resultScore, this.resetHandler, {Key? key})
       : super(key: key);
- 
-  //Remark Logic
+
   String get resultPhrase {
     String resultText;
+
     if (resultScore >= 41) {
       resultText = 'You are awesome!';
       debugPrint('debug: resultScore');
@@ -37,12 +37,12 @@ class Result extends StatelessWidget {
             resultPhrase,
             style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
-          ), //Text
+          ),
           Text(
             'Score ' '$resultScore',
             style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
-          ), //Text
+          ),
           TextButton(
             onPressed: resetHandler(),
             child: Container(
@@ -55,8 +55,8 @@ class Result extends StatelessWidget {
             ),
           ),
           ),
-        ], //<Widget>[]
-      ), //Column
-    ); //Center
+        ],
+      ),
+    );
   }
 }

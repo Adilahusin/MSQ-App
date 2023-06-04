@@ -3,7 +3,7 @@ import 'pages/quiz.dart';
 import './pages/quiz/result.dart';
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() {
@@ -12,17 +12,39 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
+  var _totalScore = 0;
+
+  _answerQuestion(int score) {
+         WidgetsBinding.instance
+        .addPostFrameCallback((_) => setState(() {
+          //_questionIndex ++;
+          _totalScore += score;
+    }));
+    debugPrint('debug: _questionIndex');
+  }
+
+    _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+  });
+  }
   
-  final _questions = const [
-        {
-      'questionText': 'Q1. Who created Flutter?',
+  @override
+  Widget build(BuildContext context) {
+  var _questions = [{
+
+      'questionText': 'Q1. Being able to keep busy all the time',
       'answers': [
-        {'text': 'Facebook', 'score': -2},
-        {'text': 'Adobe', 'score': -2},
-        {'text': 'Google', 'score': 10},
-        {'text': 'Microsoft', 'score': -2},
+        {'text': 'Very Dissatisfied', 'score': -2},
+        {'text': 'Dissatisfied', 'score': -2},
+        {'text': 'Neutral', 'score': 10},
+        {'text': 'Satisfied', 'score': -2},
+        {'text': 'Very Satisfied', 'score': -2},
       ],
     },
+
     {
       'questionText': 'Q2. What is Flutter?',
       'answers': [
@@ -35,6 +57,7 @@ class _MyAppState extends State<MyApp> {
         },
       ],
     },
+
     {
       'questionText': ' Q3. Which programming language is used by Flutter',
       'answers': [
@@ -44,6 +67,7 @@ class _MyAppState extends State<MyApp> {
         {'text': 'Kotlin', 'score': -2},
       ],
     },
+
     {
       'questionText': 'Q4. Who created Dart programming language?',
       'answers': [
@@ -53,6 +77,7 @@ class _MyAppState extends State<MyApp> {
         {'text': 'Jeremy Ashkenas', 'score': -2},
       ],
     },
+
     {
       'questionText':
           'Q5. Is Flutter for Web and Desktop available in stable version?',
@@ -65,47 +90,14 @@ class _MyAppState extends State<MyApp> {
       ],
     },
   ];
- 
-  var _questionIndex = 0;
-  var _totalScore = 0;
- 
-  void _resetQuiz() {
-     WidgetsBinding.instance
-        .addPostFrameCallback((_) => setState(() {
-      _questionIndex = 0;
-      _totalScore = 0;
-    //setState(() {});
-  }));
-  }
- 
 
-  void _answerQuestion(int score) {
-    _totalScore += score;
- 
- WidgetsBinding.instance
-        .addPostFrameCallback((_) => setState(() {
-
-      _questionIndex = _questionIndex + 1;
-    }));
-    // ignore: avoid_print
-    print(_questionIndex);
-    if (_questionIndex < _questions.length) {
-      // ignore: avoid_print
-      print('We have more questions!');
-    } else {
-      // ignore: avoid_print
-      print('No more questions!');
-    }
-  }
- 
-  @override
-  Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: const Text('MSQ Mobile Application'),
           backgroundColor: Colors.yellow[700],
         ),
+
         body: Padding(
           padding: const EdgeInsets.all(30.0),
           child: _questionIndex < _questions.length
@@ -113,10 +105,11 @@ class _MyAppState extends State<MyApp> {
                   answerQuestion: _answerQuestion,
                   questionIndex: _questionIndex,
                   questions: _questions,
-                ) //Quiz
+                )
               : Result(_totalScore, _resetQuiz),
         ),
       ),
+
       debugShowCheckedModeBanner: false,
     );
   }
