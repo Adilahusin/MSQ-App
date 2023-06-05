@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:msq/main.dart';
 import 'package:msq/pages/homepage.dart';
 
 class LoginPage extends StatelessWidget {
@@ -11,14 +10,19 @@ class LoginPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
-        leading: IconButton(icon: const Icon(Icons.arrow_back_rounded),
+
+        leading: IconButton(
           onPressed: (){
-            Navigator.push(
-              context, MaterialPageRoute(
-                builder: (context) => const Index()));
-                    },
+            Navigator.pop(context);
+          },
+
+          icon: const Icon(Icons.arrow_back_rounded,
+          size: 20,
+          color: Colors.black,
           ),
+        ),
       ),
 
       body: Container(
