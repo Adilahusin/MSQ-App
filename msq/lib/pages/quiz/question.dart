@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
  
-class Question extends StatelessWidget {
+class Question extends StatelessWidget { //use stateful
   final String questionText;
  
   const Question(this.questionText, {Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class Question extends StatelessWidget {
         questionText,
         style: const TextStyle(fontSize: 20),
         textAlign: TextAlign.center,
-      ), //Text
-    ); //Container
+      ),
+    );
   }
 }

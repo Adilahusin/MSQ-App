@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:msq/pages/login.dart';
 import 'package:msq/question_model.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,6 +10,7 @@ class HomePage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.yellow[700],
 
@@ -18,9 +18,7 @@ class HomePage extends StatelessWidget {
 
           IconButton(icon: const Icon(Icons.logout_rounded),
           onPressed: (){
-            Navigator.push(
-              context, MaterialPageRoute(
-                builder: (context) => const LoginPage()));
+            Navigator.pop(context);
                     },
           ),
         ],
@@ -80,7 +78,7 @@ class HomePage extends StatelessWidget {
                     onPressed: (){
                       Navigator.push(
                         context, MaterialPageRoute(
-                          builder: (context) => const MyApp()));
+                          builder: (context) =>  QuizApp()));
                     },
 
                     shape: RoundedRectangleBorder(

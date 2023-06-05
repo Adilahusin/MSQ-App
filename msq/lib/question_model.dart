@@ -1,290 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:msq/pages/homepage.dart';
-import 'pages/quiz.dart';
-import './pages/quiz/result.dart';
+import 'package:msq/question_data.dart';
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
+class QuizApp extends StatefulWidget {
   @override
-  State<MyApp> createState() {
-    return _MyAppState();
-  }  
+  _QuizAppState createState() => _QuizAppState();
 }
 
-class _MyAppState extends State<MyApp> {
-  var _questionIndex = 0;
-  var _totalScore = 0;
+class _QuizAppState extends State<QuizApp> {
+  final List<Map<String, Object>> _questions = questions ;
+  var questionIndex;
+  var totalScore;
 
-  _answerQuestion(int score) {
-         WidgetsBinding.instance
-        .addPostFrameCallback((_) => setState(() {
-          //_questionIndex ++;
-          //_totalScore += score;
-    }));
-    debugPrint('debug: _questionIndex');
+  @override
+  void initState() {
+    super.initState();
+    
+    questionIndex = 0;
+    totalScore = 0;
   }
 
-    _resetQuiz() {
+  void answerQuestion(int score) {
     setState(() {
-      _questionIndex = 0;
-      _totalScore = 0;
-  });
+      totalScore += score;
+      questionIndex++;
+    });
   }
-  
+
+  void submitQuiz() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Quiz Result'),
+          content: Text('Your total score is $totalScore.'),
+          actions: [
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-  var _questions = [{
-
-      'questionText': 'Q1. Being able to keep busy all the time',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText': 'Q2. The chance to work alone on the job',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText': ' Q3. The chance to do different things from time to time',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText': 'Q4. The chance to be "somebody" in the community',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q5. The way my boss handles his/her workers',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q6. The competence of my supervisor in making decisions',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q7. Being able to do things that do not go against my conscience',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q8. The way my job provides for steady employment',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q9. The chance to do things for other people',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q10. The chance to tell people what to do',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q11. The chance to do something that makes use of my abilities',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q12. The way company policies are put into practice',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q13. My pay and the amount of work I do',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q14. The chances for advancement on this job',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q15. The freedom to use my own judgement',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q16. The chance to try my own methods of doing the job',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q17. The working conditions',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-    {
-      'questionText':
-          'Q18. The way my co-workers get along with each other',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-        {
-      'questionText':
-          'Q19. The praise I get for doing a good job',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-        {
-      'questionText':
-          'Q20. The feeling of accomplishment I get from the job',
-      'answers': [
-        {'text': 'Very Dissatisfied', 'score': 1},
-        {'text': 'Dissatisfied', 'score': 2},
-        {'text': 'Neutral', 'score': 3},
-        {'text': 'Satisfied', 'score': 4},
-        {'text': 'Very Satisfied', 'score': 5},
-      ],
-    },
-
-
-  ];
-
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
+    return Scaffold(
+      appBar: AppBar(
           centerTitle: true,
           title: const Text('MSQ Mobile Application'),
           backgroundColor: Colors.yellow[700],
           leading: IconButton(
             onPressed: (){
-            Navigator.push(
-              context, MaterialPageRoute(
-                builder: (context) => const HomePage()));
+            Navigator.pop(context);
             },
           icon: const Icon(Icons.arrow_back_rounded,
           size: 20,
@@ -292,20 +63,108 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         ),
+      body: questionIndex < questions.length
+          ? Column(
+              children: [
+                Text(
+                  questions[questionIndex]['questionText'] as String,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromRGBO(0, 0, 0, 1),
+                  ),
+                ),
 
-        body: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: _questionIndex < _questions.length
-              ? Quiz(
-                  answerQuestion: _answerQuestion,
-                  questionIndex: _questionIndex,
-                  questions: _questions,
-                )
-              : Result(_totalScore, _resetQuiz),
-        ),
-      ),
+                const SizedBox(height: 20),
+                ...(questions[questionIndex]['answers'] as List<Map<String, Object>>).map((answer) {
+                  return GestureDetector(
+                onTap: () {
+                  answerQuestion(answer['score'] as int);
+                  print(answer['score']);
+                  // add the response to database here
+                },
+                
+                child: Center(
+                  child: Container(
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                        Color.fromARGB(255, 241, 189, 3),
+                        Color.fromARGB(255, 227, 223, 117)
+                      ])
+                    ),
+                    width: MediaQuery.of(context).size.width * 0.9, // Set width to 90% of screen width
+                    margin: const EdgeInsets.symmetric(vertical: 10), // Add vertical spacing of 10 units
+                    child: Center(child: Text(answer['text'] as String)),
+                  ),
+                ),
+              );}),
 
-      debugShowCheckedModeBanner: false,
+              const SizedBox(height: 20),
+               
+              ],
+            )
+          : 
+          
+          Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Quiz Completed!',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                  
+                  Text(
+                    'Your Score : ${totalScore.toString()}',
+                    style: const TextStyle(fontSize: 24),
+                  ),
+
+                ],
+              ),
+            ),
     );
   }
 }
+
+
+  
+
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           centerTitle: true,
+//           title: const Text('MSQ Mobile Application'),
+//           backgroundColor: Colors.yellow[700],
+//           leading: IconButton(
+//             onPressed: (){
+//             Navigator.push(
+//               context, MaterialPageRoute(
+//                 builder: (context) => const HomePage()));
+//             },
+//           icon: const Icon(Icons.arrow_back_rounded,
+//           size: 20,
+//           color: Colors.white,
+//           ),
+//         ),
+//         ),
+
+//         body: Padding(
+//           padding: const EdgeInsets.all(30.0),
+//           child: _questionIndex < _questions.length
+//               ? Quiz(
+//                   answerQuestion: _answerQuestion,
+//                   questionIndex: _questionIndex,
+//                   questions: _questions,
+//                 )
+//               : Result(_totalScore, _resetQuiz),
+//         ),
+//       ),
+
+//       //debugShowCheckedModeBanner: false,
+//     );
+//   }
+// }
