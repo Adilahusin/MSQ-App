@@ -27,15 +27,14 @@ class Index extends StatelessWidget {
             Navigator.push(
               context, MaterialPageRoute(
                 builder: (context) => const AdminLogin()));
-                    },
+          },
           ),
 
           IconButton(icon: Image.asset('assets/tati.png'),
-          onPressed: (){
-            Navigator.push(
-              context, MaterialPageRoute(
-                builder: (context) => const TatiInfo()));
-                    },
+          onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => const TatiInfo()));
+            },
           ),
 
         ],

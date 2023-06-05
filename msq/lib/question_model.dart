@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:msq/pages/homepage.dart';
 import 'pages/quiz.dart';
 import './pages/quiz/result.dart';
 
@@ -19,7 +20,7 @@ class _MyAppState extends State<MyApp> {
          WidgetsBinding.instance
         .addPostFrameCallback((_) => setState(() {
           //_questionIndex ++;
-          _totalScore += score;
+          //_totalScore += score;
     }));
     debugPrint('debug: _questionIndex');
   }
@@ -94,8 +95,20 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: const Text('MSQ Mobile Application'),
           backgroundColor: Colors.yellow[700],
+          leading: IconButton(
+            onPressed: (){
+            Navigator.push(
+              context, MaterialPageRoute(
+                builder: (context) => const HomePage()));
+            },
+          icon: const Icon(Icons.arrow_back_rounded,
+          size: 20,
+          color: Colors.white,
+          ),
+        ),
         ),
 
         body: Padding(

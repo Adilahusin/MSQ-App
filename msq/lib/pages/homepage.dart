@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:msq/main.dart';
+import 'package:msq/pages/login.dart';
 import 'package:msq/question_model.dart';
 
 class HomePage extends StatelessWidget {
@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
           onPressed: (){
             Navigator.push(
               context, MaterialPageRoute(
-                builder: (context) => const Index()));
+                builder: (context) => const LoginPage()));
                     },
           ),
         ],
