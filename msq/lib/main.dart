@@ -3,8 +3,14 @@ import 'package:msq/pages/admin_login.dart';
 import 'package:msq/pages/guidelines.dart';
 import 'package:msq/pages/login.dart';
 import 'package:msq/pages/tati_info.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: Index(),
@@ -105,7 +111,7 @@ class Index extends StatelessWidget {
                     onPressed: (){
                       Navigator.push(
                         context, MaterialPageRoute(
-                          builder: (context) => const LoginPage()));
+                          builder: (context) => LoginPage()));
                     },
 
                     shape: RoundedRectangleBorder(

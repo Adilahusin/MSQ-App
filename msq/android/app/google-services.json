@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "762237616518",
+    "project_id": "msq-app-40f48",
+    "storage_bucket": "msq-app-40f48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762237616518:android:6f5303572c5cbcaea6ec07",
+        "android_client_info": {
+          "package_name": "com.example.msq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762237616518-fsfcjubvf6644tqul42sq932jv922tlt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrvy_76qB3DMluhhW_ui7s3LsvDSILNL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762237616518-fsfcjubvf6644tqul42sq932jv922tlt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
