@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:msq/main.dart';
 import 'package:msq/question_model.dart';
 
 class HomePage extends StatelessWidget {
@@ -17,9 +18,10 @@ class HomePage extends StatelessWidget {
         actions: <Widget>[
 
           IconButton(icon: const Icon(Icons.logout_rounded),
-          onPressed: (){
-            Navigator.pop(context);
-                    },
+          onPressed: () {
+            Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const Index()));
+          },
           ),
         ],
 
