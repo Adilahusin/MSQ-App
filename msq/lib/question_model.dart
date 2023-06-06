@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:msq/main.dart';
+import 'package:msq/pages/homepage.dart';
 import 'package:msq/pages/login.dart';
 import 'package:msq/question_data.dart';
 
@@ -168,13 +169,13 @@ class _QuizAppState extends State<QuizApp> {
                     ),
                   ),
 
-                  const SizedBox(height: 20),
+                const SizedBox(height: 20),
 
             // Restart Button
             TextButton(
               onPressed: () {
                 Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => const Index()));
+                  context, MaterialPageRoute(builder: (context) => const HomePage()));
               },
 
             child: Container(
@@ -189,10 +190,24 @@ class _QuizAppState extends State<QuizApp> {
             ),
           ),
           ),
+          
+          const SizedBox(height: 20),
+
+            Container(
+              padding: const EdgeInsets.only(top: 50),
+              height: 220,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/2.png"),
+                  fit: BoxFit.fitHeight
+                  ),
+                  ),
+            ),
 
                 ],
               ),
             ),
+
     );
   }
 }

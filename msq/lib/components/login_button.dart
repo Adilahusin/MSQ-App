@@ -11,10 +11,11 @@ class LoginButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(25),
-        margin: const EdgeInsets.symmetric(horizontal: 25),
+        margin: const EdgeInsets.symmetric(horizontal: 18),
         decoration: BoxDecoration(
           color: const Color(0xff0095FF),
           borderRadius: BorderRadius.circular(50),
+          border: Border.all(color: Colors.black),
           
         ),
         child: const Center(

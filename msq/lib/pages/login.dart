@@ -1,25 +1,24 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:msq/main.dart';
-import 'package:msq/pages/homepage.dart';
-
-import '../components/login_button.dart';
-import '../components/login_textfields.dart';
+// import '../components/login_button.dart';
+// import '../components/login_textfields.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+import 'homepage.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key}) : super(key: key);
 
-  // Text editing controllers
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  // // Text editing controllers
+  // final emailController = TextEditingController();
+  // final passwordController = TextEditingController();
 
-  // Sign user in
-  void signUserIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text,
-      password: passwordController.text,
-      );
-  }
+  // // Sign user in
+  // void signUserIn() async {
+  //   await FirebaseAuth.instance.signInWithEmailAndPassword(
+  //     email: emailController.text,
+  //     password: passwordController.text,
+  //     );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -74,19 +73,29 @@ class LoginPage extends StatelessWidget {
                   ],
                   ),
 
-              // username textfield
-              MyTextField(
-                controller: emailController,
-                hintText: 'Email',
-                obscureText: false,
-              ),
+              // // username textfield
+              // MyTextField(
+              //   controller: emailController,
+              //   hintText: 'Email',
+              //   obscureText: false,
+              // ),
 
-              // password textfield
-              MyTextField(
-                controller: passwordController,
-                hintText: 'Password',
-                obscureText: true,
-              ),
+              // // password textfield
+              // MyTextField(
+              //   controller: passwordController,
+              //   hintText: 'Password',
+              //   obscureText: true,
+              // ),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Column(
+                      children: <Widget>[
+                        inputFile(label:"Email"),
+                        inputFile(label:"Password", obscureText: true),
+                      ],
+                    ),
+                  ),
 
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -103,35 +112,35 @@ class LoginPage extends StatelessWidget {
                           ),
                       ),
 
-                      // child: MaterialButton(
-                      //   minWidth: double.infinity,
-                      //   height: 60,
-                      //   onPressed: () {
-                      //     Navigator.push(
-                      //   context, MaterialPageRoute(
-                      //     builder: (context) => const HomePage()));},
-                      //   color: const Color(0xff0095FF),
-                      //   elevation: 0,
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(50),
-                      //   ),
+                      child: MaterialButton(
+                        minWidth: double.infinity,
+                        height: 60,
+                        onPressed: () {
+                          Navigator.push(
+                        context, MaterialPageRoute(
+                          builder: (context) => const HomePage()));},
+                        color: const Color(0xff0095FF),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
+                        ),
 
-                      //   child: const Text("Login",
-                      //   style: TextStyle(
-                      //     fontWeight: FontWeight.w600,
-                      //     fontSize: 18,
-                      //     color: Colors.white,
-                      //     ),
-                      //     ),
+                        child: const Text("Login",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                          color: Colors.white,
+                          ),
+                          ),
 
-                      // ),
+                      ),
                     ),
                   ),
 
-                  // sign in button
-                  LoginButton(
-                    onTap: signUserIn,
-                  ),
+                  // // sign in button
+                  // LoginButton(
+                  //   onTap: signUserIn,
+                  // ),
 
 
                   Container(
