@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:msq/pages/hhomepage.dart';
+import 'package:msq/pages/homepage.dart';
 import 'package:msq/pages/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -19,7 +19,7 @@ class _afterLoginState extends State<afterLogin> {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return const hhomepage();
+            return const HomePage();
           }else{
             return const LoginPage();
           }

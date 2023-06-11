@@ -45,7 +45,13 @@ class _HomePageState extends State<HomePage> {
               Column(
                 children: <Widget>[
 
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 20),
+
+                  const Text(
+                    "Signed in",
+                    ),
+
+                    const SizedBox(height: 10),
 
                   const Text(
                     "MSQ Mobile App",
