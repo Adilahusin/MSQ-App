@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:msq/main.dart';
-// import '../components/login_button.dart';
-// import '../components/login_textfields.dart';
+//import '../components/login_button.dart';
+//import '../components/login_textfields.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
-import 'homepage.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
-  // // Text editing controllers
-  // final emailController = TextEditingController();
-  // final passwordController = TextEditingController();
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
 
-  // // Sign user in
-  // void signUserIn() async {
-  //   await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //     email: emailController.text,
-  //     password: passwordController.text,
-  //     );
-  // }
+class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -42,106 +35,105 @@ class LoginPage extends StatelessWidget {
         ),
       ),
 
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Expanded(child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    const Text("Login",
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold
-                    ),
-                    ),
+      body: SafeArea(
+        child: Center(
+          child: Column (
+            children: [
 
-                    const SizedBox(
-                      height: 20,
-                    ),
+              const SizedBox(height: 30),
 
-                    Text("Login to your account",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.grey[700]
-                    ),
-                    ),
-                  ],
-                  ),
+              const Text(
+                'Login',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
+              ),
 
-              // // username textfield
-              // MyTextField(
-              //   controller: emailController,
-              //   hintText: 'Email',
-              //   obscureText: false,
-              // ),
+              const SizedBox(height: 25),
 
-              // // password textfield
-              // MyTextField(
-              //   controller: passwordController,
-              //   hintText: 'Password',
-              //   obscureText: true,
-              // ),
+              Text(
+                'Login to your account',
+                style: TextStyle(
+                  color: Colors.grey[700],
+                  fontSize: 15,
+                ),
+              ),
 
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: Column(
-                      children: <Widget>[
-                        inputFile(label:"Email"),
-                        inputFile(label:"Password", obscureText: true),
-                      ],
-                    ),
-                  ),
+              const SizedBox(height: 30),
 
+                  // Email textfield
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40),
                     child: Container(
-                      padding: const EdgeInsets.only(top: 0, left: 0),
-                      decoration: 
-                      BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        border: const Border(
-                          bottom: BorderSide(color: Colors.black),
-                          top: BorderSide(color: Colors.black),
-                          left: BorderSide(color: Colors.black),
-                          right: BorderSide(color: Colors.black),
-                          ),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(12),
                       ),
-
-                      child: MaterialButton(
-                        minWidth: double.infinity,
-                        height: 60,
-                        onPressed: () {
-                          Navigator.push(
-                        context, MaterialPageRoute(
-                          builder: (context) => const HomePage()));},
-                        color: const Color(0xff0095FF),
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 20),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Email',
                         ),
-
-                        child: const Text("Login",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                          color: Colors.white,
-                          ),
-                          ),
-
+                      ),
                       ),
                     ),
                   ),
 
-                  // // sign in button
-                  // LoginButton(
-                  //   onTap: signUserIn,
-                  // ),
+                  const SizedBox(height: 20),
 
+                  // Password textfield
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 20),
+                      child: TextField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Password',
+                        ),
+                      ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 30),
+
+                  // Login button
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: const Color(0xff0095FF),
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      
+                      child: const Center(
+                        child: Text(
+                          'Log In',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 32),
 
                   Container(
                     padding: const EdgeInsets.only(top:100),
@@ -154,57 +146,11 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
 
-              ],
-            ),
-            ),
-          ],
-        ),
-      ),
-
-    );
-    
-  }
-}
-
-// Widgets for textField
-Widget inputFile({label, obscureText = false})
-{
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      Text(
-        label,
-        style: const TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.w400,
-          color: Colors.black87,
-        ),
-        ),
-
-        TextField(
-          obscureText: obscureText,
-          decoration: const InputDecoration(
-            contentPadding: EdgeInsets.symmetric(
-              vertical: 0,
-              horizontal: 10),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.grey
-                ),
-
-              ),
-
-              border: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.grey
-                  ),
-              )
-
+            ]
           ),
         ),
+      ),
+   );
 
-        const SizedBox(height: 10),
-    ],
-  );
-  
+  }
 }

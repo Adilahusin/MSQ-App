@@ -66,7 +66,7 @@ class _QuizAppState extends State<QuizApp> {
           IconButton(icon: const Icon(Icons.logout_rounded),
           onPressed: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => LoginPage()));
+                  context, MaterialPageRoute(builder: (context) => const LoginPage()));
             }
             ),
         ],

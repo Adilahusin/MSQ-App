@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TatiInfo extends StatelessWidget {
+class TatiInfo extends StatefulWidget {
   const TatiInfo({Key? key}) : super(key: key);
 
+  @override
+  State<TatiInfo> createState() => _TatiInfoState();
+}
+
+class _TatiInfoState extends State<TatiInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

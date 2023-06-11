@@ -17,9 +17,14 @@ void main() async {
   ));
 }
 
-class Index extends StatelessWidget {
+class Index extends StatefulWidget {
   const Index({super.key});
 
+  @override
+  State<Index> createState() => _IndexState();
+}
+
+class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,7 +116,7 @@ class Index extends StatelessWidget {
                     onPressed: (){
                       Navigator.push(
                         context, MaterialPageRoute(
-                          builder: (context) => LoginPage()));
+                          builder: (context) => const LoginPage()));
                     },
 
                     shape: RoundedRectangleBorder(

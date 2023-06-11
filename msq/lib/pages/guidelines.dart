@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Guidelines extends StatelessWidget {
+class Guidelines extends StatefulWidget {
   const Guidelines({Key? key}) : super(key: key);
 
+  @override
+  State<Guidelines> createState() => _GuidelinesState();
+}
+
+class _GuidelinesState extends State<Guidelines> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

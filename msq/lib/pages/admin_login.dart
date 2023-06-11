@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:msq/main.dart';
 import 'package:msq/pages/admin_homepage.dart';
 
-class AdminLogin extends StatelessWidget {
+class AdminLogin extends StatefulWidget {
   const AdminLogin({Key? key}) : super(key: key);
 
+  @override
+  State<AdminLogin> createState() => _AdminLoginState();
+}
+
+class _AdminLoginState extends State<AdminLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
