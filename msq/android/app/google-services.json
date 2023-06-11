@@ -29,6 +29,13 @@
             {
               "client_id": "762237616518-fsfcjubvf6644tqul42sq932jv922tlt.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "762237616518-jlg8ii38tg7daabusgt8d74fi9n09939.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.msq"
+              }
             }
           ]
         }

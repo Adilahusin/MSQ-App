@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:msq/pages/admin_login.dart';
+import 'package:msq/pages/after_login.dart';
 import 'package:msq/pages/guidelines.dart';
 import 'package:msq/pages/login.dart';
 import 'package:msq/pages/tati_info.dart';
@@ -9,11 +10,11 @@ import 'firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
+    options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: Index(),
+    home: afterLogin(),
   ));
 }
 

@@ -10,6 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,14 +30,14 @@ class _HomePageState extends State<HomePage> {
           },
           ),
         ],
-
-      ),
+      ),    
 
       body: SafeArea(
         child: Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+          
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,9 +45,7 @@ class _HomePageState extends State<HomePage> {
               Column(
                 children: <Widget>[
 
-                  const SizedBox(
-                  height: 30,
-                  ),
+                  const SizedBox(height: 30),
 
                   const Text(
                     "MSQ Mobile App",
@@ -55,9 +54,8 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 33,
                     ),
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    
+                    const SizedBox(height: 20),
                     
                     Text("Minnesota Satisfaction Questionnaire",
                       textAlign: TextAlign.center,
@@ -104,9 +102,7 @@ class _HomePageState extends State<HomePage> {
 
                   ),
 
-                  const SizedBox(
-                  height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   
           ],
                   

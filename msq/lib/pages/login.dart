@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:msq/main.dart';
 //import '../components/login_button.dart';
@@ -13,7 +14,25 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
+  // text controllers
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  Future logIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+      );
+  }
+
   @override
+
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -37,6 +56,7 @@ class _LoginPageState extends State<LoginPage> {
 
       body: SafeArea(
         child: Center(
+          child: SingleChildScrollView(
           child: Column (
             children: [
 
@@ -71,10 +91,11 @@ class _LoginPageState extends State<LoginPage> {
                         border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: const Padding(
-                        padding: EdgeInsets.only(left: 20),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
                       child: TextField(
-                        decoration: InputDecoration(
+                        controller: _emailController,
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Email',
                         ),
@@ -94,11 +115,12 @@ class _LoginPageState extends State<LoginPage> {
                         border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: const Padding(
-                        padding: EdgeInsets.only(left: 20),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
                       child: TextField(
+                        controller: _passwordController,
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Password',
                         ),
@@ -112,21 +134,24 @@ class _LoginPageState extends State<LoginPage> {
                   // Login button
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: Container(
-                      padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: const Color(0xff0095FF),
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(40),
-                      ),
-                      
-                      child: const Center(
-                        child: Text(
-                          'Log In',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                    child: GestureDetector(
+                      onTap: logIn,
+                      child: Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: const Color(0xff0095FF),
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        
+                        child: const Center(
+                          child: Text(
+                            'Log In',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
                           ),
                         ),
                       ),
@@ -148,6 +173,7 @@ class _LoginPageState extends State<LoginPage> {
 
             ]
           ),
+        ),
         ),
       ),
    );
