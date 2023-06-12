@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:msq/pages/admin_login.dart';
-import 'package:msq/pages/after_login.dart';
+import 'package:msq/pages/auth_page.dart';
 import 'package:msq/pages/guidelines.dart';
 import 'package:msq/pages/login.dart';
 import 'package:msq/pages/tati_info.dart';
@@ -12,9 +12,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: afterLogin(),
+    home: AuthPage(),
   ));
 }
 
