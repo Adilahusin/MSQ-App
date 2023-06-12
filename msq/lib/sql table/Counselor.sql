@@ -1,7 +1,0 @@
--- SQLite
-
-CREATE TABLE Counselor (
-CS_email VARCHAR(100) NOT NULL PRIMARY KEY UNIQUE,
-CS_password VARCHAR(10) NOT NULL
-);
-
